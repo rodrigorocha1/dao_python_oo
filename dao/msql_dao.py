@@ -1,23 +1,18 @@
-from abc import ABC, abstractmethod
+from idao import IDao
 
 
-class IDao(ABC):
-    @abstractmethod
+class MysqlDAO(IDao):
     def inserir(self, id: int, nome: str, segmento: str):
-        pass
+        print(id, nome, segmento)
 
-    @abstractmethod
     def listar_id(self):
         pass
 
-    @abstractmethod
     def listar_todos(self):
         pass
 
-    @abstractmethod
     def delete_id(self):
         pass
 
-    @abstractmethod
     def delete_todos(self):
         pass
