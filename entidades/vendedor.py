@@ -1,5 +1,5 @@
 import abc
-from abc import ABC
+from abc import ABC, abstractmethod
 
 
 class Vendedor(ABC):
@@ -32,6 +32,6 @@ class Vendedor(ABC):
     def segmento(self, segmento: str):
         self._segmento = segmento
 
-    @abc.abstractmethod
+    @abstractmethod
     def calcula_comissao(self, valor_venda: float):
         pass
