@@ -1,6 +1,5 @@
 from typing import Type
 from dao.idao import IDao
-from dao.msql_dao import MysqlDAO
 
 
 class VendedorDAO:
