@@ -2,7 +2,8 @@ from typing import Type
 from dao.idao import IDao
 
 
-class VendedorDAO:
+
+class VendedorOuroDAO:
     def __init__(self, repositorio: Type[IDao]):
         self.__repositorio = repositorio
 
@@ -20,5 +21,3 @@ class VendedorDAO:
 
     def delete_todos(self):
         pass
-
-
