@@ -1,6 +1,7 @@
 from idao import IDao
 from entidades.vendedor import Vendedor
 
+
 class MysqlDAO(IDao):
     def inserir(self, id: int, nome: str, segmento: str):
         print(id, nome, segmento)
