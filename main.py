@@ -1,6 +1,16 @@
-from entidades.vendedor_prata import VendedorPrata
+from entidades.vendedor_ouro import VendedorOuro
 
-from entidades.vendedor import Vendedor
+while True:
+    op = int(input('1 - Inserir \n'
+                   ''))
+    if op == 1:
+        inp_id = int(input('Digite o código do vendedor'))
+        inp_nm = int(input('Digite o nome do vendedor'))
+        inp_seg = int(input('Digite o segmento do vendedor'))
 
-v = Vendedor()
-print(v)
+        vo = VendedorOuro(inp_id, inp_nm, inp_seg)
+
+
+
+    else:
+        break
