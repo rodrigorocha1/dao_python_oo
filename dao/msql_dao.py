@@ -70,4 +70,9 @@ class MysqlDAO(IDao):
         cursor.close()
 
     def delete_todos(self):
-        pass
+        c = ConexaoFabrica()
+        conexao, cursor = c.conection_factory()
+        sql_delete_todos = f'DELETE from vendedor '
+        cursor.execute(sql_delete_todos)
+        conexao.commit()
+        cursor.close()

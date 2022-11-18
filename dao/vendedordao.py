@@ -23,4 +23,4 @@ class VendedorOuroDAO:
         self.__repositorio.delete_id(id_vendedor)
 
     def delete_todos(self):
-        pass
+        self.__repositorio.delete_todos()

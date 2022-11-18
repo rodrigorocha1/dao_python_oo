@@ -44,6 +44,10 @@ while True:
         vendedordao = VendedorOuroDAO(MysqlDAO())
         vendedordao.delete_id(id_vendedor)
 
+    elif op == 6:
+        vendedordao = VendedorOuroDAO(MysqlDAO())
+        vendedordao.delete_todos()
+
 
     else:
         break
