@@ -1,9 +1,10 @@
 from abc import ABC, abstractmethod
+from entidades.vendedor_ouro import VendedorOuro
 
 
 class IDao(ABC):
     @abstractmethod
-    def inserir(self, id: int, nome: str, segmento: str):
+    def inserir(self, vendedor_ouro: VendedorOuro):
         pass
 
     @abstractmethod
