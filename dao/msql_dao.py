@@ -3,6 +3,7 @@ from entidades.vendedor_ouro import VendedorOuro
 from dao.conexao_fabrica import ConexaoFabrica
 import mysql.connector.errors as error
 
+
 class MysqlDAO(IDao):
     def inserir(self, vendedor_ouro: VendedorOuro):
 
@@ -18,10 +19,12 @@ class MysqlDAO(IDao):
             print('Registro Inserido')
 
         except error.DatabaseError as database_erro:
-            print(f'Erro ao inserir o registro {vendedor_ouro.id_vendedor}, {vendedor_ouro.nome}, {vendedor_ouro.segmento}')
+            print(
+                f'Erro ao inserir o registro {vendedor_ouro.id_vendedor}, {vendedor_ouro.nome}, {vendedor_ouro.segmento}')
             print(database_erro)
         except error.DataError as desc_erro:
-            print(f'Erro ao inserir o registro {vendedor_ouro.id_vendedor}, {vendedor_ouro.nome}, {vendedor_ouro.segmento}')
+            print(
+                f'Erro ao inserir o registro {vendedor_ouro.id_vendedor}, {vendedor_ouro.nome}, {vendedor_ouro.segmento}')
             print(desc_erro)
         finally:
             cursor.close()
