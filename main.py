@@ -1,7 +1,6 @@
 from entidades.vendedor_ouro import VendedorOuro
 from dao.vendedordao import VendedorOuroDAO
 from dao.msql_dao import MysqlDAO
-from dao.banco import BANCO
 
 while True:
 
