@@ -1,13 +1,14 @@
 from typing import Type
 from dao.idao import IDao
+from entidades.vendedor_ouro import VendedorOuro
 
 
 class VendedorOuroDAO:
     def __init__(self, repositorio: Type[IDao]):
         self.__repositorio = repositorio
 
-    def inserir(self, id: int, nome: str, segmento: str):
-        self.__repositorio.inserir(id, nome, segmento)
+    def inserir(self, vendedor_ouro: VendedorOuro):
+        self.__repositorio.inserir(vendedor_ouro)
 
     def listar_id(self):
         pass
