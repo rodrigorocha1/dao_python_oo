@@ -6,7 +6,9 @@ from dao.banco import BANCO
 while True:
 
     op = int(input('1 - Inserir \n'
-                   '2 - Listar por Id'))
+                   '2 - Listar por Id\n'
+                   '3 - Listar todos\n'
+                   '4 - Atualizar segmento do vendedor'))
     if op == 1:
         # inp_id = int(input('Digite o código do vendedor: '))
         # inp_nm = (input('Digite o nome do vendedor: '))
@@ -25,9 +27,15 @@ while True:
 
     elif op == 3:
         vendedordao = VendedorOuroDAO(MysqlDAO())
-        print(vendedordao.listar_todos())
+        lista_todos = vendedordao.listar_todos()
+        for vendedor in lista_todos:
+            print(vendedor)
 
-
+    elif op == 4:
+        segmento = 'prata'
+        id_vendedor = 1
+        vendedordao = VendedorOuroDAO(MysqlDAO())
+        vendedordao.atualizar(id_vendedor, segmento)
 
     else:
         break

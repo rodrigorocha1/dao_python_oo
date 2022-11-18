@@ -16,7 +16,11 @@ class IDao(ABC):
         pass
 
     @abstractmethod
-    def delete_id(self):
+    def delete_id(self, id: int):
+        pass
+
+    @abstractmethod
+    def atualizar(self, id_vendedor: int, segmento: str):
         pass
 
     @abstractmethod

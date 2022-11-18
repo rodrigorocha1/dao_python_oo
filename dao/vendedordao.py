@@ -16,6 +16,9 @@ class VendedorOuroDAO:
     def listar_todos(self) -> list:
         return self.__repositorio.listar_todos()
 
+    def atualizar(self, id_vendedor: int, segmento: str):
+        self.__repositorio.atualizar(id_vendedor, segmento)
+
     def delete_id(self):
         pass
 
