@@ -48,6 +48,5 @@ while True:
         vendedordao = VendedorOuroDAO(MysqlDAO())
         vendedordao.delete_todos()
 
-
     else:
         break
