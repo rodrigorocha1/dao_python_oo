@@ -9,6 +9,7 @@ class MysqlDAO(IDao):
 
         try:
             c = ConexaoFabrica()
+
             conexao, cursor = c.conection_factory()
 
             sql_insert = f'INSERT INTO vendedor (id_vendedor, nome, segmento) ' \
