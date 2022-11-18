@@ -8,7 +8,7 @@ class IDao(ABC):
         pass
 
     @abstractmethod
-    def listar_id(self):
+    def listar_id(self, id_vendedor: int):
         pass
 
     @abstractmethod

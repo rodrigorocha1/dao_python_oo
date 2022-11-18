@@ -10,7 +10,7 @@ class VendedorOuroDAO:
     def inserir(self, vendedor_ouro: VendedorOuro):
         self.__repositorio.inserir(vendedor_ouro)
 
-    def listar_id(self):
+    def listar_id(self, id_vendedor: int):
         pass
 
     def listar_todos(self):
