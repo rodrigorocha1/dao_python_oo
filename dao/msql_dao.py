@@ -60,8 +60,14 @@ class MysqlDAO(IDao):
         conexao.commit()
         cursor.close()
 
-    def delete_id(self):
-        pass
+    def delete_id(self, id_vendedor: int):
+        c = ConexaoFabrica()
+        conexao, cursor = c.conection_factory()
+        sql_delete_id = f'DELETE from vendedor ' \
+                        f'where id_vendedor = {id_vendedor} '
+        cursor.execute(sql_delete_id)
+        conexao.commit()
+        cursor.close()
 
     def delete_todos(self):
         pass

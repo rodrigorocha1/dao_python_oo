@@ -19,8 +19,8 @@ class VendedorOuroDAO:
     def atualizar(self, id_vendedor: int, segmento: str):
         self.__repositorio.atualizar(id_vendedor, segmento)
 
-    def delete_id(self):
-        pass
+    def delete_id(self, id_vendedor: int):
+        self.__repositorio.delete_id(id_vendedor)
 
     def delete_todos(self):
         pass

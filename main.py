@@ -8,7 +8,9 @@ while True:
     op = int(input('1 - Inserir \n'
                    '2 - Listar por Id\n'
                    '3 - Listar todos\n'
-                   '4 - Atualizar segmento do vendedor'))
+                   '4 - Atualizar segmento do vendedor\n'
+                   '5- Apagar um registro\n'
+                   '6 - Apagar todos'))
     if op == 1:
         # inp_id = int(input('Digite o código do vendedor: '))
         # inp_nm = (input('Digite o nome do vendedor: '))
@@ -36,6 +38,12 @@ while True:
         id_vendedor = 1
         vendedordao = VendedorOuroDAO(MysqlDAO())
         vendedordao.atualizar(id_vendedor, segmento)
+
+    elif op == 5:
+        id_vendedor = 1
+        vendedordao = VendedorOuroDAO(MysqlDAO())
+        vendedordao.delete_id(id_vendedor)
+
 
     else:
         break
