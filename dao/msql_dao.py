@@ -29,18 +29,26 @@ class MysqlDAO(IDao):
         finally:
             cursor.close()
 
-    def listar_id(self, id_vendedor: int):
-        c = ConexaoFabrica
+    def listar_id(self, id_vendedor):
+        c = ConexaoFabrica()
         conexao, cursor = c.conection_factory()
-        sql_select_id = 'SELECT * ' \
-                        'FROM vendedor.vendedor ' \
-                        f'where id_vendedor = {id_vendedor}'
-        cursor.execute(sql_select_id)
+
+        cursor = conexao.cursor()
+        comando = f'SELECT * FROM vendedor where id_vendedor = {id_vendedor}'
+        cursor.execute(comando)
         resultado = cursor.fetchone()
+
         return resultado
 
     def listar_todos(self):
-        pass
+        c = ConexaoFabrica()
+        conexao, cursor = c.conection_factory()
+        sql_select_all = 'SELECT * ' \
+                         'FROM vendedor.vendedor '
+        cursor.execute(sql_select_all)
+        dados_todos = cursor.fetchall()
+        cursor.close()
+        return dados_todos
 
     def delete_id(self):
         pass
