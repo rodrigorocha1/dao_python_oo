@@ -52,23 +52,32 @@ class MysqlDAO(IDao):
         return dados_todos
 
     def atualizar(self, id_vendedor: int, segmento: str):
-        c = ConexaoFabrica()
-        conexao, cursor = c.conection_factory()
-        sql_update = f'UPDATE vendedor ' \
-                     f'SET  segmento = "{segmento}" ' \
-                     f'where id_vendedor = {id_vendedor}'
-        cursor.execute(sql_update)
-        conexao.commit()
-        cursor.close()
+        try:
+            c = ConexaoFabrica()
+            conexao, cursor = c.conection_factory()
+            sql_update = f'UPDATE vendedor ' \
+                         f'SET  segmento = "{segmento}" ' \
+                         f'where id_vendedor = {id_vendedor}'
+            cursor.execute(sql_update)
+            conexao.commit()
+            cursor.close()
+
+        except error.DataError as database_error:
+            print(f'Error no tipo de dado:  {id_vendedor} - {database_error}')
+            cursor.close()
 
     def delete_id(self, id_vendedor: int):
-        c = ConexaoFabrica()
-        conexao, cursor = c.conection_factory()
-        sql_delete_id = f'DELETE from vendedor ' \
-                        f'where id_vendedor = {id_vendedor} '
-        cursor.execute(sql_delete_id)
-        conexao.commit()
-        cursor.close()
+        try:
+            c = ConexaoFabrica()
+            conexao, cursor = c.conection_factory()
+            sql_delete_id = f'DELETE from vendedor ' \
+                            f'where id_vendedor = {id_vendedor} '
+            cursor.execute(sql_delete_id)
+            conexao.commit()
+            cursor.close()
+        except error.DataError as database_error:
+            print(f'Error no tipo de dado:  {id_vendedor} - - {database_error}')
+            cursor.close()
 
     def delete_todos(self):
         c = ConexaoFabrica()
