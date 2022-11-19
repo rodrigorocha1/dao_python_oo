@@ -2,7 +2,7 @@ from mysql.connector import connect
 import mysql.connector.errors as error
 
 
-class ConexaoFabrica():
+class ConexaoFabrica:
 
     def conection_factory(self):
         try:
