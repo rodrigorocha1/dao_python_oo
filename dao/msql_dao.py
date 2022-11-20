@@ -2,6 +2,7 @@ from dao.idao import IDao
 from entidades.vendedor_ouro import VendedorOuro
 from dao.conexao_fabrica import ConexaoFabrica
 import mysql.connector.errors as error
+from colorama import Fore
 
 
 class MysqlDAO(IDao):
@@ -17,15 +18,16 @@ class MysqlDAO(IDao):
             print(sql_insert)
             cursor.execute(sql_insert)
             conexao.commit()
-            print('Registro Inserido')
+            print(Fore.GREEN, 'Registro Inserido')
+            print()
 
         except error.DatabaseError as database_erro:
-            print(
-                f'Erro ao inserir o registro {vendedor_ouro.id_vendedor}, {vendedor_ouro.nome}, {vendedor_ouro.segmento}')
+            print(Fore.RED,
+                  f'Erro ao inserir o registro {vendedor_ouro.id_vendedor}, {vendedor_ouro.nome}, {vendedor_ouro.segmento}')
             print(database_erro)
         except error.DataError as desc_erro:
-            print(
-                f'Erro ao inserir o registro {vendedor_ouro.id_vendedor}, {vendedor_ouro.nome}, {vendedor_ouro.segmento}')
+            print(Fore.RED,
+                  f'Erro ao inserir o registro {vendedor_ouro.id_vendedor}, {vendedor_ouro.nome}, {vendedor_ouro.segmento}')
             print(desc_erro)
         finally:
             cursor.close()
@@ -38,6 +40,7 @@ class MysqlDAO(IDao):
         comando = f'SELECT * FROM vendedor where id_vendedor = {id_vendedor}'
         cursor.execute(comando)
         resultado = cursor.fetchone()
+        print(Fore.GREEN, 'Sucesso')
 
         return resultado
 
@@ -49,6 +52,7 @@ class MysqlDAO(IDao):
         cursor.execute(sql_select_all)
         dados_todos = cursor.fetchall()
         cursor.close()
+        print(Fore.GREEN, 'Sucesso')
         return dados_todos
 
     def atualizar(self, id_vendedor: int, segmento: str):
@@ -61,9 +65,10 @@ class MysqlDAO(IDao):
             cursor.execute(sql_update)
             conexao.commit()
             cursor.close()
+            print(Fore.GREEN, 'Atualização feita')
 
         except error.DataError as database_error:
-            print(f'Error no tipo de dado:  {id_vendedor} - {database_error}')
+            print(Fore.RED, f'Error no tipo de dado:  {id_vendedor} - {database_error}')
             cursor.close()
 
     def delete_id(self, id_vendedor: int):
@@ -75,8 +80,9 @@ class MysqlDAO(IDao):
             cursor.execute(sql_delete_id)
             conexao.commit()
             cursor.close()
+            print(Fore.GREEN, 'Delete Feito')
         except error.DataError as database_error:
-            print(f'Error no tipo de dado:  {id_vendedor} - - {database_error}')
+            print(Fore.RED, f'Error no tipo de dado:  {id_vendedor} - - {database_error}')
             cursor.close()
 
     def delete_todos(self):
@@ -84,5 +90,6 @@ class MysqlDAO(IDao):
         conexao, cursor = c.conection_factory()
         sql_delete_todos = f'DELETE from vendedor '
         cursor.execute(sql_delete_todos)
+        print(Fore.GREEN, 'Delete Feito')
         conexao.commit()
         cursor.close()

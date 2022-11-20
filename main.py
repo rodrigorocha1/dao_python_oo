@@ -14,14 +14,14 @@ while True:
         # inp_id = int(input('Digite o código do vendedor: '))
         # inp_nm = (input('Digite o nome do vendedor: '))
         # inp_seg = (input('Digite o segmento do vendedor: '))
-        inp_id = 4
-        inp_nm = 'vend4'
+        inp_id = 5
+        inp_nm = 'vend5'
         inp_seg = 'ouro'
         vendedordao = VendedorOuroDAO(MysqlDAO())
         vo = VendedorOuro(inp_id, inp_nm, inp_seg)
         vendedordao.inserir(vo)
     elif op == 2:
-        id_vendedor = 2
+        id_vendedor = 4
         b = VendedorOuroDAO(MysqlDAO())
         vendedor = b.listar_id(id_vendedor)
         print(vendedor)
