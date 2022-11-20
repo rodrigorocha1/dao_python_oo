@@ -14,7 +14,7 @@ while True:
         # inp_id = int(input('Digite o código do vendedor: '))
         # inp_nm = (input('Digite o nome do vendedor: '))
         # inp_seg = (input('Digite o segmento do vendedor: '))
-        inp_id = 5
+        inp_id = 9
         inp_nm = 'vend5'
         inp_seg = 'ouro'
         vendedordao = VendedorOuroDAO(MysqlDAO())
@@ -39,7 +39,7 @@ while True:
         vendedordao.atualizar(id_vendedor, segmento)
 
     elif op == 5:
-        id_vendedor = 1
+        id_vendedor = 4
         vendedordao = VendedorOuroDAO(MysqlDAO())
         vendedordao.delete_id(id_vendedor)
 
