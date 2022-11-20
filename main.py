@@ -11,17 +11,15 @@ while True:
                    '5- Apagar um registro\n'
                    '6 - Apagar todos'))
     if op == 1:
-        # inp_id = int(input('Digite o código do vendedor: '))
-        # inp_nm = (input('Digite o nome do vendedor: '))
-        # inp_seg = (input('Digite o segmento do vendedor: '))
-        inp_id = 9
-        inp_nm = 'vend5'
-        inp_seg = 'ouro'
+        inp_id = int(input('Digite o código do vendedor: '))
+        inp_nm = (input('Digite o nome do vendedor: '))
+        inp_seg = (input('Digite o segmento do vendedor: '))
+
         vendedordao = VendedorOuroDAO(MysqlDAO())
         vo = VendedorOuro(inp_id, inp_nm, inp_seg)
         vendedordao.inserir(vo)
     elif op == 2:
-        id_vendedor = 4
+        id_vendedor = int(input('Digite o código do vendedor: '))
         b = VendedorOuroDAO(MysqlDAO())
         vendedor = b.listar_id(id_vendedor)
         print(vendedor)
@@ -35,11 +33,13 @@ while True:
     elif op == 4:
         segmento = 'prata'
         id_vendedor = 1
+        id_vendedor = int(input('Digite o código do vendedor a ser atualizado: '))
+        segmento = (input('Digite o segmento do vendedor a ser atualizado: '))
         vendedordao = VendedorOuroDAO(MysqlDAO())
         vendedordao.atualizar(id_vendedor, segmento)
 
     elif op == 5:
-        id_vendedor = 4
+        id_vendedor = int(input('Digite o código do vendedor a ser excluido: '))
         vendedordao = VendedorOuroDAO(MysqlDAO())
         vendedordao.delete_id(id_vendedor)
 
